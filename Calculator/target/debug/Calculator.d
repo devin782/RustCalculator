@@ -1,0 +1,1 @@
+C:\Users\mw3lo\OneDrive\Documents\Rust\ Programming\Calculator\target\debug\Calculator.exe: C:\Users\mw3lo\OneDrive\Documents\Rust\ Programming\Calculator\src\main.rs C:\Users\mw3lo\OneDrive\Documents\Rust\ Programming\Calculator\src\math_functions.rs
