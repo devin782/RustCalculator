@@ -8,16 +8,22 @@ fn main()
 
     while done != true {
         println!("Which calculation would you like to do?
-        1: Addition
-        2: Subtraction
-        3: Multiplication
-        4: Division
-        5: Square
-        6: Cube
-        7: Exponent
-        8: Square Root
-        9: Quadratic
-        10: Sine");
+        1:  Addition
+        2:  Subtraction
+        3:  Multiplication
+        4:  Division
+        5:  Square
+        6:  Cube
+        7:  Exponent
+        8:  Square Root
+        9:  Quadratic
+        10: Sine
+        11: Cosine
+        12: Tangent
+        13: Cosecant
+        14: Secant
+        15: Cotangent
+        16: Derivative");
             
         let choice: u32 = get_input().trim().parse().unwrap();
 
@@ -73,10 +79,51 @@ fn main()
                 let answer = math_functions::sine();
                 println!("Your answer is: {}", answer);
             }
+            11 =>
+            {
+                let answer = math_functions::cosine();
+                println!("Your answer is: {}", answer);
+            }
+            12 =>
+            {
+                let answer = math_functions::tan();
+                println!("Your answer is: {}", answer);
+            }
+            13 =>
+            {
+                let answer = math_functions::cosec();
+                println!("Your answer is: {}", answer);
+            }
+            14 =>
+            {
+                let answer = math_functions::sec();
+                println!("Your answer is: {}", answer);
+            }
+            15 =>
+            {
+                let answer = math_functions::cotan();
+                println!("Your answer is: {}", answer);
+            }
+            16 =>
+            {
+                let answer = math_functions::derivative();
+                if answer[2] == 0.0
+                {
+                    println!("Result: {}x + {}", answer[0], answer[1]);
+                }
+                else if answer[3] == 0.0
+                {
+                    println!("Result: {}x^2 + {}x + {}", answer[0], answer[1], answer[2]);
+                }
+                else if answer[4] == 0.0
+                {
+                    println!("Result: {}x^3 + {}x^2 + {}x + {}", answer[0], answer[1], answer[2], answer[3]);
+                }
+            }
             _ => println!("Invalid Input")
         }
 
-        println!("Are you done?");
+        println!("\nAre you done?");
         check_done = get_input().trim().parse().unwrap();
 
         if check_done.to_lowercase() == "yes"
