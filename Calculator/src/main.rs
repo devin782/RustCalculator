@@ -14,8 +14,10 @@ fn main()
         4: Division
         5: Square
         6: Cube
-        7: Square Root
-        8: Quadratic");
+        7: Exponent
+        8: Square Root
+        9: Quadratic
+        10: Sine");
             
         let choice: u32 = get_input().trim().parse().unwrap();
 
@@ -53,13 +55,23 @@ fn main()
             }
             7 =>
             {
+                let answer = math_functions::exp();
+                println!("Your answer is: {}", answer);
+            }
+            8 =>
+            {
                 let answer = math_functions::sqr_root();
                 println!("Your answer is: {}", answer);
             }
-            8 => 
+            9 => 
             {
                 let answer = math_functions::quadratic();
                 println!("Zeros: {} and {} ", answer[0], answer[1])
+            }
+            10 =>
+            {
+                let answer = math_functions::sine();
+                println!("Your answer is: {}", answer);
             }
             _ => println!("Invalid Input")
         }
