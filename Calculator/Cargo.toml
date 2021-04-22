@@ -1,5 +1,5 @@
 [package]
-name = "Calculator"
+name = "calculator"
 version = "0.1.0"
 authors = ["devin782 <devin.wolford@oit.edu>"]
 edition = "2018"

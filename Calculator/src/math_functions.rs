@@ -4,13 +4,46 @@ pub fn get_input() -> String {
     buffer
 }
 
-pub fn add() -> i32
+pub fn add() -> f32
 {
     println!("Input first value:");
-    let x: i32 = get_input().trim().parse().unwrap();
+    let x: f32 = get_input().trim().parse().unwrap();
     println!("Input second value:");
-    let y: i32 = get_input().trim().parse().unwrap();
+    let y: f32 = get_input().trim().parse().unwrap();
 
     let result = x + y;
+    return result;
+}
+
+pub fn sub() -> f32
+{
+    println!("Input first value:");
+    let x: f32 = get_input().trim().parse().unwrap();
+    println!("Input second value:");
+    let y: f32 = get_input().trim().parse().unwrap();
+
+    let result = x - y;
+    return result;
+}
+
+pub fn mult() -> f32
+{
+    println!("Input first value:");
+    let x: f32 = get_input().trim().parse().unwrap();
+    println!("Input second value:");
+    let y: f32 = get_input().trim().parse().unwrap();
+
+    let result = x * y;
+    return result;
+}
+
+pub fn div() -> f32
+{
+    println!("Input first value:");
+    let x: f32 = get_input().trim().parse().unwrap();
+    println!("Input second value:");
+    let y: f32 = get_input().trim().parse().unwrap();
+
+    let result = x / y;
     return result;
 }
