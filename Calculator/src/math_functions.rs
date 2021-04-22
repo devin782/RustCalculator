@@ -80,6 +80,7 @@ pub fn quadratic() -> [f64; 2]
         println!("Pick an a other than 0");
         a = get_input().trim().parse().unwrap();
     }
+    //Add in a check for b and c being 0
     println!("Input your b:");
     let b: f64 = get_input().trim().parse().unwrap();
     println!("Input your c:");

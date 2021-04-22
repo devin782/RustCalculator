@@ -19,45 +19,49 @@ fn main()
             
         let choice: u32 = get_input().trim().parse().unwrap();
 
-        if choice == 1
+        match choice
         {
-            let answer = math_functions::add();
-            println!("Your answer is: {}", answer);
-        }
-        else if choice == 2
-        {
-            let answer = math_functions::sub();
-            println!("Your answer is: {}", answer);
-        }
-        else if choice == 3
-        {
-            let answer = math_functions::mult();
-            println!("Your answer is: {}", answer);
-        }
-        else if choice == 4
-        {
-            let answer = math_functions::div();
-            println!("Your answer is: {}", answer);
-        }
-        else if choice == 5
-        {
-            let answer = math_functions::sqr();
-            println!("Your answer is: {}", answer);
-        }
-        else if choice == 6
-        {
-            let answer = math_functions::cube();
-            println!("Your answer is: {}", answer);
-        }
-        else if choice == 7
-        {
-            let answer = math_functions::sqr_root();
-            println!("Your answer is: {}", answer);
-        }
-        else if choice == 8
-        {
-            let answer = math_functions::quadratic();
-            println!("Zeros: {} and {} ", answer[0], answer[1])
+            1 => 
+            {
+                let answer = math_functions::add();
+                println!("Your answer is: {}", answer);
+            }
+            2 => 
+            {
+                let answer = math_functions::sub();
+                println!("Your answer is: {}", answer);
+            }
+            3 => 
+            {
+                let answer = math_functions::mult();
+                println!("Your answer is: {}", answer);
+            }
+            4 => 
+            {
+                let answer = math_functions::div();
+                println!("Your answer is: {}", answer);
+            }
+            5 => 
+            {
+                let answer = math_functions::sqr();
+                println!("Your answer is: {}", answer);
+            }
+            6 => 
+            {
+                let answer = math_functions::cube();
+                println!("Your answer is: {}", answer);
+            }
+            7 =>
+            {
+                let answer = math_functions::sqr_root();
+                println!("Your answer is: {}", answer);
+            }
+            8 => 
+            {
+                let answer = math_functions::quadratic();
+                println!("Zeros: {} and {} ", answer[0], answer[1])
+            }
+            _ => println!("Invalid Input")
         }
 
         println!("Are you done?");
