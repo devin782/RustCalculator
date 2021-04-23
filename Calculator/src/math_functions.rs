@@ -4,116 +4,89 @@ pub fn get_input() -> String {
     buffer
 }
 
-pub fn add() -> f64
+pub fn add(x: f64, y: f64) -> f64
 {
-    println!("Input first value:");
-    let x: f64 = get_input().trim().parse().unwrap();
-    println!("Input second value:");
-    let y: f64 = get_input().trim().parse().unwrap();
-
     let result = x + y;
     return result;
 }
 
-pub fn sub() -> f64
+pub fn sub(x: f64, y: f64) -> f64
 {
-    println!("Input first value:");
-    let x: f64 = get_input().trim().parse().unwrap();
-    println!("Input second value:");
-    let y: f64 = get_input().trim().parse().unwrap();
-
     let result = x - y;
     return result;
 }
 
-pub fn mult() -> f64
+pub fn mult(x: f64, y: f64) -> f64
 {
-    println!("Input first value:");
-    let x: f64 = get_input().trim().parse().unwrap();
-    println!("Input second value:");
-    let y: f64 = get_input().trim().parse().unwrap();
-
     let result = x * y;
     return result;
 }
 
-pub fn div() -> f64
+pub fn div(x: f64, y: f64) -> f64
 {
-    println!("Input first value:");
-    let x: f64 = get_input().trim().parse().unwrap();
-    println!("Input second value:");
-    let y: f64 = get_input().trim().parse().unwrap();
-
     let result = x / y;
     return result;
 }
 
-pub fn sqr() -> f64
-{
-    println!("Input number:");
-    let x: f64 = get_input().trim().parse().unwrap();
-    let result = x*x;
-    return result;
-}
-
-pub fn cube() -> f64
-{
-    println!("Input number:");
-    let x: f64 = get_input().trim().parse().unwrap();
-    let result = x*x*x;
-    return result;
-}
-
-pub fn exp() -> f64
+pub fn exp(x: f64, mut y: f64) -> f64
 {
     let mut result: f64;
 
-    println!("Input base number:");
-    let x: f64 = get_input().trim().parse().unwrap();
-    println!("Input exponent:");
-    let mut y: i64 = get_input().trim().parse().unwrap();
-
     result = x;
-    while y > 1
+    while y > 1.0
     {
         result = result*x;
-        y = y - 1;
+        y = y - 1.0;
     }
 
     return result;
 }
 
-pub fn sqr_root() -> f64
+pub fn root(x: f64, y: f64) -> f64
 {
-    println!("Input number:");
-    let x: f64 = get_input().trim().parse().unwrap();
-    let result = x.sqrt();
-    return result;
-}
+    let mut result: f64 = 1.0;
+    let mut temp: f64;
+    let precision = 0.000001;
 
-pub fn quadratic() -> [f64; 2]
-{
-    println!("Input your a:");
-    let mut a: f64 = get_input().trim().parse().unwrap();
-    while a == 0.0
+    temp = result;
+    while temp <= x
     {
-        println!("Pick an a other than 0");
-        a = get_input().trim().parse().unwrap();
+        let mut power = y;
+        temp = result;
+        while power > 1.0
+        {
+            temp = temp*result;
+            power = power - 1.0;
+        }
+        if temp <= x
+        {
+            result = result+1.0;
+        } 
+    }
+
+    
+    result = result - 1.0;
+    temp = 0.0;
+    while temp < x
+    {
+        let mut power = y;
+        temp = result;
+        while power > 1.0
+        {
+            temp = temp*result;
+            power = power - 1.0;
+        }
+        if temp < x
+        {
+            result = result + precision;  
+        }
     }
     
-    println!("Input your b:");
-    let mut b: f64 = get_input().trim().parse().unwrap();
-    println!("Input your c:");
-    let mut c: f64 = get_input().trim().parse().unwrap();
-    while b == 0.0 && c == 0.0
-    {
-        println!("Can't have a zero for both b and c");
-        println!("Input your b:");
-        b = get_input().trim().parse().unwrap();
-        println!("Input your c:");
-        c = get_input().trim().parse().unwrap();
-    }
+    return result;
+}
 
+pub fn quadratic(a: f64, b:f64, c: f64) -> [f64; 2]
+{
     let zero_1 = (-b + (b*b - 4.0*a*c as f64).sqrt()) / (2.0*a);
     let zero_2 = (-b - (b*b - 4.0*a*c as f64).sqrt()) / (2.0*a);
 
@@ -121,13 +94,8 @@ pub fn quadratic() -> [f64; 2]
     return result;
 }
 
-pub fn sine() -> f64
+pub fn sine(x: f64, y:f64) -> f64
 {
-    println!("Give opposite length:");
-    let x: f64 = get_input().trim().parse().unwrap();
-    println!("Give hypotenuse length:");
-    let y: f64 = get_input().trim().parse().unwrap();
-
     let result = x/y;
     return result;
 }
@@ -154,13 +122,8 @@ pub fn tan() -> f64
     return result;
 }
 
-pub fn cosec() -> f64
+pub fn cosec(x: f64, y: f64) -> f64
 {
-    println!("Give hypotenuse length:");
-    let x: f64 = get_input().trim().parse().unwrap();
-    println!("Give opposite length:");
-    let y: f64 = get_input().trim().parse().unwrap();
-
     let result = x/y;
     return result;
 }
