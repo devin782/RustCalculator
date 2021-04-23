@@ -100,6 +100,12 @@ pub fn sine(x: f64, y:f64) -> f64
     return result;
 }
 
+pub fn cosec(x: f64, y: f64) -> f64
+{
+    let result = x/y;
+    return result;
+}
+
 pub fn cosine() -> f64
 {
     println!("Give adjacent length:");
@@ -111,9 +117,9 @@ pub fn cosine() -> f64
     return result;
 }
 
-pub fn tan() -> f64
+pub fn sec() -> f64
 {
-    println!("Give opposite length:");
+    println!("Give hypotenuse length:");
     let x: f64 = get_input().trim().parse().unwrap();
     println!("Give adjacent length:");
     let y: f64 = get_input().trim().parse().unwrap();
@@ -122,15 +128,9 @@ pub fn tan() -> f64
     return result;
 }
 
-pub fn cosec(x: f64, y: f64) -> f64
+pub fn tan() -> f64
 {
-    let result = x/y;
-    return result;
-}
-
-pub fn sec() -> f64
-{
-    println!("Give hypotenuse length:");
+    println!("Give opposite length:");
     let x: f64 = get_input().trim().parse().unwrap();
     println!("Give adjacent length:");
     let y: f64 = get_input().trim().parse().unwrap();

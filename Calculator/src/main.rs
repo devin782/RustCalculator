@@ -12,13 +12,17 @@ use fltk::dialog::*;
 
 fn main() 
 {
+    //Set up application
     let app = App::default();
+    //Set up window
     let mut win = Window::new(100, 100, 400, 300, "Calculator").center_screen();
     
+    //Display text
     let out = "What calculation would you like?";
     let disp = Output::new(0, 0, 400, 20, "");
     disp.set_value(out);
 
+    //Add buttons for calculations
     let mut add_but = Button::new(0, 20, 100, 20, "Addition");
     let mut sub_but = Button::new(0, 40, 100, 20, "Subtraction");
     let mut mult_but = Button::new(0, 60, 100, 20, "Multiplication");
@@ -28,18 +32,25 @@ fn main()
     let mut quad_but = Button::new(0, 140, 100, 20, "Quadratic");
     let mut sine_but = Button::new(0, 160, 100, 20, "Sine/Cosecant");
 
+    //Handlers for the buttons
+
     add_but.handle(move |_add_but, ev: Event| { match ev {
         Event::Push => {
+            //Open new window
             let mut eq_win = Window::new(100, 100, 400, 300, "Addition").center_screen();
 
+            //Create inputs, output, and a result button
             let inp0 = FloatInput::new(100, 0, 200, 50, "X:");
             let inp1 = FloatInput::new(100, 50, 200, 50, "Y:");
             let result = Output::new(100, 100, 200, 50, "Result:");
             let mut enter = Button::new(100, 150, 200, 50, "Enter");
 
+            //Handle the enter
             enter.handle(move |_enter, num: Event| { match num {
                 Event::Push => {
+                    //Turn answer into a string
                     let answer = add(inp0.value().parse::<f64>().unwrap(), inp1.value().parse::<f64>().unwrap()).to_string();
+                    //Output answer
                     result.set_value(&answer);
                     true
                 },
@@ -233,8 +244,21 @@ fn main()
                 Event::Push => {
                     let s_answer = sine(inp0.value().parse::<f64>().unwrap(), inp1.value().parse::<f64>().unwrap()).to_string();
                     let c_answer = cosec(inp1.value().parse::<f64>().unwrap(), inp0.value().parse::<f64>().unwrap()).to_string();
-                    s_result.set_value(&s_answer);
-                    c_result.set_value(&c_answer);
+                    if s_answer == "inf"
+                    {
+                        s_result.set_value("Division by zero");
+                        c_result.set_value(&c_answer);
+                    }
+                    else if c_answer == "inf"
+                    {
+                        s_result.set_value(&s_answer);
+                        c_result.set_value("Division by zero");
+                    }
+                    else 
+                    {
+                        s_result.set_value(&s_answer);
+                        c_result.set_value(&c_answer);
+                    }
                     true
                 },
                 _ => false,
