@@ -260,6 +260,8 @@ pub fn calc()
     let mut beven_but = Button::new(100, 60, 100, 20, "Break Even");
     let mut profit_but = Button::new(100, 80, 100, 20, "Profit");
     let mut avg_but = Button::new(100, 100, 100, 20, "Average Cost");
+    let mut itb_but = Button::new(100, 120, 100, 20, "Int to Binary");
+    let mut ith_but = Button::new(100, 140, 100, 20, "Int to Hex");
 
     //Handlers for the buttons
 
@@ -918,6 +920,58 @@ pub fn calc()
                     let answer = avgcost(inp0.value().parse::<f64>().unwrap(), inp1.value().parse::<f64>().unwrap(), inp2.value().parse::<f64>().unwrap());
                     let ans = format!("{:.2}", answer).to_string();
                     result.set_value(&("$".to_string() + &ans));
+                    true
+                },
+                _ => false,
+            }});
+
+            eq_win.end();
+            eq_win.show();
+            eq_win.set_color(Color::White);
+            true
+        },
+        _ => false,
+    }});
+
+    itb_but.handle(move |_itb_but, ev: Event| { match ev {
+        Event::Push => {
+            let mut eq_win = Window::new(100, 100, 400, 300, "Integer to Binary").center_screen();
+
+            let inp0 = IntInput::new(100, 0, 200, 50, "Integer:");
+            let result = Output::new(100, 50, 200, 50, "Binary:");
+            let mut enter = Button::new(100, 100, 200, 50, "Enter");
+
+            enter.handle(move |_enter, num: Event| { match num {
+                Event::Push => {
+                    let answer = inp0.value().parse::<i64>().unwrap();
+                    let ans = format!("{:b}", answer);
+                    result.set_value(&ans);
+                    true
+                },
+                _ => false,
+            }});
+
+            eq_win.end();
+            eq_win.show();
+            eq_win.set_color(Color::White);
+            true
+        },
+        _ => false,
+    }});
+
+    ith_but.handle(move |_ith_but, ev: Event| { match ev {
+        Event::Push => {
+            let mut eq_win = Window::new(100, 100, 400, 300, "Integer to Hex").center_screen();
+
+            let inp0 = IntInput::new(100, 0, 200, 50, "Integer:");
+            let result = Output::new(100, 50, 200, 50, "Hex:");
+            let mut enter = Button::new(100, 100, 200, 50, "Enter");
+
+            enter.handle(move |_enter, num: Event| { match num {
+                Event::Push => {
+                    let answer = inp0.value().parse::<i64>().unwrap();
+                    let ans = format!("{:X}", answer);
+                    result.set_value(&ans);
                     true
                 },
                 _ => false,
