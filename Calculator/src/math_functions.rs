@@ -1,9 +1,3 @@
-pub fn get_input() -> String {
-    let mut buffer = String::new();
-    std::io::stdin().read_line(&mut buffer).expect("Failed");
-    buffer
-}
-
 pub fn add(x: f64, y: f64) -> f64
 {
     let result = x + y;
@@ -106,118 +100,55 @@ pub fn cosec(x: f64, y: f64) -> f64
     return result;
 }
 
-pub fn cosine() -> f64
+pub fn cosine(x: f64, y: f64) -> f64
 {
-    println!("Give adjacent length:");
-    let x: f64 = get_input().trim().parse().unwrap();
-    println!("Give hypotenuse length:");
-    let y: f64 = get_input().trim().parse().unwrap();
-
     let result = x/y;
     return result;
 }
 
-pub fn sec() -> f64
+pub fn sec(x: f64, y: f64) -> f64
 {
-    println!("Give hypotenuse length:");
-    let x: f64 = get_input().trim().parse().unwrap();
-    println!("Give adjacent length:");
-    let y: f64 = get_input().trim().parse().unwrap();
-
     let result = x/y;
     return result;
 }
 
-pub fn tan() -> f64
+pub fn tan(x: f64, y: f64) -> f64
 {
-    println!("Give opposite length:");
-    let x: f64 = get_input().trim().parse().unwrap();
-    println!("Give adjacent length:");
-    let y: f64 = get_input().trim().parse().unwrap();
-
     let result = x/y;
     return result;
 }
 
-pub fn cotan() -> f64
+pub fn cotan(x: f64, y: f64) -> f64
 {
-    println!("Give adjacent length:");
-    let x: f64 = get_input().trim().parse().unwrap();
-    println!("Give opposite length:");
-    let y: f64 = get_input().trim().parse().unwrap();
-
     let result = x/y;
     return result;
 }
 
-pub fn derivative() -> [f64; 5]
+pub fn derivative(arr: & [f64]) -> [f64; 4]
 {
-    let mut result = [0.0,0.0,0.0,0.0,0.0];
+    let mut result = [0.0,0.0,0.0,0.0];
 
-    println!("Is your highest power 4, 3, 2?");
-    let power: i32 = get_input().trim().parse().unwrap();
+    let size = arr.len();
 
-    match power
+    match size
     {
         2 =>
         {
-            println!("Input leading coefficient");
-            let mut a: f64 = get_input().trim().parse().unwrap();
-            println!("Input your b:");
-            let mut b: f64 = get_input().trim().parse().unwrap();
-            println!("Input your c:");
-            let mut c: f64 = get_input().trim().parse().unwrap();
-
-            a = a*2.0;
-            b = b*1.0;
-            c = c*0.0;
-            result[0] = a;
-            result[1] = b;
-            result[2] = c;
+            result[0] = arr[0]*1.0;
+            result[1] = arr[1]*0.0;
         }
         3 =>
         {
-            println!("Input leading coefficient:");
-            let mut a: f64 = get_input().trim().parse().unwrap();
-            println!("Input your 2nd coefficient:");
-            let mut b: f64 = get_input().trim().parse().unwrap();
-            println!("Input your 3rd coefficient:");
-            let mut c: f64 = get_input().trim().parse().unwrap();
-            println!("Input your c:");
-            let mut d: f64 = get_input().trim().parse().unwrap();
-
-            a = a*3.0;
-            b = b*2.0;
-            c = c*1.0;
-            d = d*0.0;
-            result[0] = a;
-            result[1] = b;
-            result[2] = c;
-            result[3] = d;
+            result[0] = arr[0]*2.0;
+            result[1] = arr[1]*1.0;
+            result[2] = arr[2]*0.0;
         }
         4 =>
         {
-            println!("Input leading coefficient:");
-            let mut a: f64 = get_input().trim().parse().unwrap();
-            println!("Input your 2nd coefficient:");
-            let mut b: f64 = get_input().trim().parse().unwrap();
-            println!("Input your 3rd coefficient:");
-            let mut c: f64 = get_input().trim().parse().unwrap();
-            println!("Input your 4th coefficient:");
-            let mut d: f64 = get_input().trim().parse().unwrap();
-            println!("Input your c:");
-            let mut e: f64 = get_input().trim().parse().unwrap();
-
-            a = a*4.0;
-            b = b*3.0;
-            c = c*2.0;
-            d = d*1.0;
-            e = e*0.0;
-            result[0] = a;
-            result[1] = b;
-            result[2] = c;
-            result[3] = d;
-            result[4] = e;
+            result[0] = arr[0]*3.0;
+            result[1] = arr[1]*2.0;
+            result[2] = arr[2]*1.0;
+            result[3] = arr[3]*0.0;
         }
         _ => println!("Invalid power")
     }
