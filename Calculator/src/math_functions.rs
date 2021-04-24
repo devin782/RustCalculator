@@ -306,6 +306,7 @@ pub fn calc()
             enter.handle(move |_enter, num: Event| { match num {
                 Event::Push => {
                     let answer = sub(inp0.value().parse::<f64>().unwrap(), inp1.value().parse::<f64>().unwrap()).to_string();
+                    
                     result.set_value(&answer);
                     true
                 },
@@ -440,7 +441,9 @@ pub fn calc()
                         if inp0.value().parse::<f64>().unwrap() != 0.0 && !(inp1.value().parse::<f64>().unwrap() == 0.0 && inp2.value().parse::<f64>().unwrap() == 0.0)
                         {
                             let answer = quadratic(inp0.value().parse::<f64>().unwrap(), inp1.value().parse::<f64>().unwrap(), inp2.value().parse::<f64>().unwrap());
-                            result.set_value(&(answer[0].to_string() + " and " + &answer[1].to_string()));
+                            let ans = format!("{:.2}", answer[0]).to_string();
+                            let ans2 = format!("{:.2}", answer[1]).to_string();
+                            result.set_value(&(ans + " and " + &ans2));
                         }
                         else 
                         {
