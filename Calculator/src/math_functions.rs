@@ -240,28 +240,28 @@ pub fn calc()
     disp.set_value(out);
 
     //Add buttons for calculations
-    let mut add_but = Button::new(0, 20, 100, 20, "Addition");
-    let mut sub_but = Button::new(0, 40, 100, 20, "Subtraction");
-    let mut mult_but = Button::new(0, 60, 100, 20, "Multiplication");
-    let mut div_but = Button::new(0, 80, 100, 20, "Division");
-    let mut exp_but = Button::new(0, 100, 100, 20, "Exponent");
-    let mut root_but = Button::new(0, 120, 100, 20, "Root");
-    let mut quad_but = Button::new(0, 140, 100, 20, "Quadratic");
-    let mut sine_but = Button::new(0, 160, 100, 20, "Sin/Cosec");
-    let mut cosine_but = Button::new(0, 180, 100, 20, "Cos/Sec");
-    let mut tangent_but = Button::new(0, 200, 100, 20, "Tan/Cotan");
-    let mut der_but = Button::new(0, 220, 100, 20, "Derivative");
-    let mut fac_but = Button::new(0, 240, 100, 20, "Factorial");
-    let mut perm_but = Button::new(0, 260, 100, 20, "Permutation");
-    let mut comb_but = Button::new(0, 280, 100, 20, "Combination");
-    let mut pv_but = Button::new(100, 20, 100, 20, "Present Value");
-    let mut fv_but = Button::new(100, 20, 100, 20, "Future Value");
-    let mut rate_but = Button::new(100, 40, 100, 20, "Rate");
-    let mut beven_but = Button::new(100, 60, 100, 20, "Break Even");
-    let mut profit_but = Button::new(100, 80, 100, 20, "Profit");
-    let mut avg_but = Button::new(100, 100, 100, 20, "Average Cost");
-    let mut itb_but = Button::new(100, 120, 100, 20, "Int to Binary");
-    let mut ith_but = Button::new(100, 140, 100, 20, "Int to Hex");
+    let mut add_but = Button::new(0, 20, 100, 40, "Addition");
+    let mut sub_but = Button::new(0, 60, 100, 40, "Subtraction");
+    let mut mult_but = Button::new(0, 100, 100, 40, "Multiplication");
+    let mut div_but = Button::new(0, 140, 100, 40, "Division");
+    let mut exp_but = Button::new(0, 180, 100, 40, "Exponent");
+    let mut root_but = Button::new(0, 220, 100, 40, "Root");
+    let mut quad_but = Button::new(0, 260, 100, 40, "Quadratic");
+    let mut sine_but = Button::new(100, 20, 100, 40, "Sin/Cosec");
+    let mut cosine_but = Button::new(100, 60, 100, 40, "Cos/Sec");
+    let mut tangent_but = Button::new(100, 100, 100, 40, "Tan/Cotan");
+    let mut der_but = Button::new(100, 140, 100, 40, "Derivative");
+    let mut fac_but = Button::new(100, 180, 100, 40, "Factorial");
+    let mut perm_but = Button::new(100, 220, 100, 40, "Permutation");
+    let mut comb_but = Button::new(100, 260, 100, 40, "Combination");
+    let mut pv_but = Button::new(200, 20, 100, 40, "Present Value");
+    let mut fv_but = Button::new(200, 60, 100, 40, "Future Value");
+    let mut rate_but = Button::new(200, 100, 100, 40, "Rate");
+    let mut beven_but = Button::new(200, 140, 100, 40, "Break Even");
+    let mut profit_but = Button::new(200, 180, 100, 40, "Profit");
+    let mut avg_but = Button::new(200, 220, 100, 40, "Average Cost");
+    let mut itb_but = Button::new(200, 260, 100, 40, "Int to Binary");
+    let mut ith_but = Button::new(300, 20, 100, 40, "Int to Hex");
 
     //Handlers for the buttons
 
