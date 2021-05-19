@@ -360,8 +360,15 @@ pub fn calc()
 
             enter.handle(move |_enter, num: Event| { match num {
                 Event::Push => {
+                    if inp1.value().parse::<f64>().unwrap() != 0.0
+                    {
                     let answer = div(inp0.value().parse::<f64>().unwrap(), inp1.value().parse::<f64>().unwrap()).to_string();
                     result.set_value(&answer);
+                    }
+                    else
+                    {
+                        result.set_value("Division by Zero");
+                    }
                     true
                 },
                 _ => false,
@@ -412,8 +419,15 @@ pub fn calc()
 
             enter.handle(move |_enter, num: Event| { match num {
                 Event::Push => {
+                    if inp1.value().parse::<f64>().unwrap() < 0.0
+                    {
                     let answer = root(inp0.value().parse::<f64>().unwrap(), inp1.value().parse::<f64>().unwrap()).to_string();
                     result.set_value(&answer);
+                    }
+                    else
+                    {
+                        let _warning = alert(300, 300, "Can't get the root of a negative number!");
+                    }
                     true
                 },
                 _ => false,
